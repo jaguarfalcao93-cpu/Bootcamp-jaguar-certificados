@@ -2,12 +2,23 @@
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        Curso curso1 = new Curso("Java Básico",40,15000.0);
-        Curso curso2 = new Curso("Spring Boot",60,25000.0);
-        Curso curso3 = new Curso("Banco de Dados",30,10000.0);
+        Curso curso = new Curso("Java Básico",40,15000.0);
 
-        curso1.descricao();
-        curso2.descricao();
-        curso3.descricao();
+        System.out.println("-------antes-------------");
+        curso.descricao();
+        System.out.println("-------alteração com valores validos-------------");
+        curso.setNome("Spring boot");
+        curso.setCargaHoraria(60);
+        curso.setPreco(25000.0);
+        System.out.println("-------mostrar depois da alteração-------------");
+        curso.descricao();
+
+        System.out.println("-------alteração com valores invalidos-------------");
+        curso.setNome("");
+        curso.setCargaHoraria(0);
+        curso.setPreco(0.0);
+        System.out.println("-------mostrar depois de valores invalidos-------------");
+        curso.descricao();
+
     }
 }
