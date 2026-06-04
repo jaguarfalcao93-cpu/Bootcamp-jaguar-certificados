@@ -2,19 +2,17 @@
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        Curso curso = new Curso("Java Básico",40,15000.0);
+        // Cria dois tipos de certificado
+        Imprimivel cert1= new CerificadoImpresso("Júlio Fernandes","UUID-123");
+        Imprimivel cert2= new CertificadoDigital("UUD-4567","Maria Fernandes");
 
-        // Cria um Director
-        Director director = new Director("Júlio Fernandes", "Julio@jaguar.ao", "Director", 50000.0, "Jaguartech");
+        // Mesmo método, comportamentos diferentes!
+        System.out.println("=== CERTIFICADO 1 ===");
+        System.out.println("Tipo: " + cert1.getTipo());
+        System.out.println(cert1.gerarPDF());
 
-        // Testa métodos herdados de Pessoa
-        director.apresentar();
-
-        // Testa métodos herdados de Funcionario
-        director.mostrarCargo();
-
-        // Testa métodos específico do Diretor
-        director.gerirCentro();
-
+        System.out.println("\n=== CERTIFICADO 2 ===");
+        System.out.println("Tipo: "+cert2.getTipo());
+        System.out.println(cert2.gerarPDF());
     }
 }
