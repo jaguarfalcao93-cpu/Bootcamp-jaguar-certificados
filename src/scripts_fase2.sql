@@ -3,6 +3,7 @@
 -- Aluno: Júlio Fernandes
 -- Data: 04/06/2026
 -- ============================================
+-- Criando as primeiras tabela e povoando
 
 -- Criando tabela de cursos
 CREATE TABLE cursos (
