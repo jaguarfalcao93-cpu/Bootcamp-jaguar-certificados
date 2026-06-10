@@ -21,15 +21,37 @@ CREATE TABLE matriculas(
 );
 
 
-=========== CRIANDO MATRICULAS ===============================
--- Júlio (id=1) se matriculou em Java Básico (id=1)
+--=========== CRIANDO MATRICULAS ===============================
+-- Júlio Fernandes (id=1) se matriculou em Java Básico (id=1)
 INSERT INTO matriculas (aluno_id, curso_id, nota_final, frequencia, status)
 VALUES (1, 1, 16.50, 90, 'CONCLUIDA');
 
--- Maria (id=2) se matriculou em Spring Boot (id=4)
+-- Bruno Fernandes (id=2) se matriculou em Spring Boot (id=4)
 INSERT INTO matriculas (aluno_id, curso_id, nota_final, frequencia, status)
 VALUES (2, 4, 14.00, 85, 'CONCLUIDA');
 
--- Carlos (id=3) se matriculou em Java Básico (id=1)
+-- Cleusio Fernandes (id=3) se matriculou em Java Básico (id=1)
 INSERT INTO matriculas (aluno_id, curso_id, status)
 VALUES (3, 1, 'ATIVA');
+
+UPDATE matriculas SET nota_final = 18 WHERE id = 7
+
+--======== CONSULTANDO MATRICULAS ===============================
+-- consulta INNER JOIN (só quem tem correspondência)
+SELECT
+    a.nome AS aluno,           -- "AS" dá um apelido para a coluna
+    c.nome AS curso,
+    m.nota_final,
+    m.status
+FROM matriculas m              -- "m" é apelido da tabela matriculas
+         INNER JOIN alunos a ON m.aluno_id = a.id    -- Liga matricula com aluno
+         INNER JOIN cursos c ON m.curso_id = c.id;   -- Liga matricula com curso
+
+-- consulta LEFT JOIN (todos da esquerda, mesmo sem correspondência)
+-- Todos os alunos, mesmo os que NÃO fizeram curso
+SELECT
+    a.nome AS aluno,
+    c.nome AS curso
+FROM alunos a
+         LEFT JOIN matriculas m ON a.id = m.aluno_id
+         LEFT JOIN cursos c ON m.curso_id = c.id;
