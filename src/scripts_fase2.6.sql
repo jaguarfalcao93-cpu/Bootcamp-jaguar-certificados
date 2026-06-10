@@ -55,3 +55,6 @@ SELECT
 FROM alunos a
          LEFT JOIN matriculas m ON a.id = m.aluno_id
          LEFT JOIN cursos c ON m.curso_id = c.id;
+
+
+-- FASE 2 COMPLETA
